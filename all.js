@@ -38,7 +38,7 @@ const nameAry = ['Ray', 'John'];
 // ~多型別陣列
 /**
  * 我的名字2
- * @type { (string | number)[] }
+ * @type {Array.<string|number>}
  */
 const nameAry2 = ['Ray', 'John', 1];
 
@@ -68,7 +68,7 @@ const objArr = {
 
 /**
  * 陣列包物件
- * @type { { name: string, age: number }[] }
+ * @type {Array.<{name: string, age: number}>}
  */
 const arrObj = [
   {
@@ -113,7 +113,7 @@ sayHi2({ name: 'curry', age: 20 });
 // ~03.實戰開發: 傳入陣列
 /**
  * 這是一個回傳問候語的函式
- * @param { (string | number)[] } ary - 包含名字和年齡的陣列
+ * @param {Array.<string|number>} ary - 包含名字和年齡的陣列
  * @returns {string} - 問候語
  */
 const sayHi4 = ([ name, age ]) => {
@@ -133,6 +133,28 @@ const sayHi3 = (callback) => {
   return `Hi, ${callback()}`;
 };
 sayHi3(() => 'John');
+
+
+// msg: 進階寫法 - @template 類似TS:泛型
+/**
+ * @template T
+ * @param {T} x 參數 x
+ * @returns {Promise<T>}
+ */
+function iAmSoShock(x) {
+  return Promise.resolve(x)
+}
+
+
+// msg: 進階寫法 - @enum 類型
+/** @enum {number} */
+const JSDocState = {
+  BeginningOfLine: 0,
+  SawAsterisk: 1,
+  SavingComments: 2,
+};
+
+JSDocState.SawAsterisk;
 
 
 // msg: 進階寫法 - @typedef 類似TS:interface

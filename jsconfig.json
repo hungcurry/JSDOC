@@ -1,8 +1,11 @@
 {
+  "opts": {
+    "template": "node_modules/clean-jsdoc-theme"
+  },
   "compilerOptions": {
     "strict": true,
-    "allowJs": true,
-    "checkJs": true,
+    "allowJs": true, // 允許編譯 JS
+    "checkJs": true, // 編譯 JS 同時做類型檢查
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
@@ -10,7 +13,14 @@
     "module": "commonjs",
     "target": "es6"
   },
+  "source": {
+    "include": ["all.js"]
+  },
   "exclude": ["node_modules", "dist", "build"],
-  // "include": ["src/**/*"]
+  // "include": [
+  //   "src/**/*.ts",
+  //   "src/**/*.js" // include JS 檔案讓 tsc 編譯
+  // ]
+  "declaration": true // 產生 .d.ts 檔案  
 }
 

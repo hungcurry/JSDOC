@@ -25,6 +25,8 @@ const myAge = 18;
  * @type {string}
  */
 const myName = 'curry';
+const un = undefined
+const nu = null
 
 
 // msg :陣列
@@ -35,12 +37,18 @@ const myName = 'curry';
  * @type { string[] }
  */
 const nameAry = ['Ray', 'John'];
-// ~多型別陣列
 /**
  * 我的名字2
- * @type {Array.<string|number>}
+ * @type {Array<Array<string>>}
  */
-const nameAry2 = ['Ray', 'John', 1];
+const nameAry2 = [['Ray', 'John']];  // 二維陣列
+
+// ~多型別陣列
+/**
+ * 我的名字3
+ * @type {Array<string|number>}
+ */
+const nameAry3 = ['Ray', 'John', 1];
 
 
 // msg :物件
@@ -55,6 +63,16 @@ const nameObj = {
 // !類型 '{ name: string; age: number; }' 沒有屬性 'gener'
 // nameObj.gener = '18';
 
+/**
+ * @typedef {Object} obj 選項
+ * @property {string} name - The name of the object.
+ * @property {string} desc - The description of the object.
+ */
+const obj = {
+  name: 'curry',
+  desc: '...',
+}
+
 
 // msg :混和物件陣列
 /**
@@ -68,7 +86,7 @@ const objArr = {
 
 /**
  * 陣列包物件
- * @type {Array.<{name: string, age: number}>}
+ * @type {Array<{name: string, age: number}>}
  */
 const arrObj = [
   {
@@ -113,7 +131,7 @@ sayHi2({ name: 'curry', age: 20 });
 // ~03.實戰開發: 傳入陣列
 /**
  * 這是一個回傳問候語的函式
- * @param {Array.<string|number>} ary - 包含名字和年齡的陣列
+ * @param {Array<string|number>} ary - 包含名字和年齡的陣列
  * @returns {string} - 問候語
  */
 const sayHi4 = ([ name, age ]) => {
@@ -144,6 +162,19 @@ sayHi3(() => 'John');
 function iAmSoShock(x) {
   return Promise.resolve(x)
 }
+
+
+/**
+ * Get the first element of an array.
+ * @template T
+ * @param {T[]} arr - The input array.
+ * @returns {T} The first element of the array.
+ */
+function getFirstElement(arr) {
+  return arr[0];
+}
+getFirstElement([1, 2, 3])
+
 
 
 // msg: 進階寫法 - @enum 類型
